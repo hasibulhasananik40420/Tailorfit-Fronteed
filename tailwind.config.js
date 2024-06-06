@@ -19,6 +19,9 @@ export default {
       },
       backgroundImage:{
         'btn-hover': 'linear-gradient(96deg, #F30B88 0.94%, #9E24B6 94.94%)'
+      },
+      borderColor:{
+        'border-hover': 'linear-gradient(96deg, #F30B88 0.94%, #9E24B6 94.94%)'
       }
     },
   },
