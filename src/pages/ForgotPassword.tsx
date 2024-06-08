@@ -1,5 +1,7 @@
 
 
+
+
 import { useState, ChangeEvent } from "react";
 import AuthNavbar from "../components/Shared/AuthNavbar";
 import { Link } from "react-router-dom";
@@ -8,7 +10,7 @@ const ForgotPassword = () => {
   const [isEmail, setIsEmail] = useState(false);
   const [isPhone, setIsPhone] = useState(false);
 
-  const handleRadioChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setIsEmail(e.target.checked);
     setIsPhone(false);
   };
@@ -38,32 +40,31 @@ const ForgotPassword = () => {
 
               <form className="md:mt-[30px] mt-6">
                 <div className="flex justify-start ml-[-33px] gap-[30px] items-center">
-                  <div className="flex items-center gap-[10px]">
+                  <label htmlFor="radioButton" className="flex items-center gap-[10px] cursor-pointer">
                     <input
                       className="size-[20px] appearance-none"
                       type="radio"
                       name="radioGroup"
                       id="radioButton"
                       checked={isEmail}
-                      onChange={handleRadioChange}
+                      onChange={handleEmailChange}
                     />
-                    <label
-                      htmlFor="radioButton"
-                      className={`w-[20px] h-[20px] rounded-full border-[2px] bg-white flex items-center justify-center cursor-pointer ${
+                    <span
+                      className={`w-[20px] h-[20px] rounded-full border-[2px] bg-white flex items-center justify-center ${
                         isEmail ? "border-[#F00C89]" : "border-[#E5E5E5]"
                       }`}
                     >
                       {isEmail && (
                         <div className="w-3 h-3 rounded-full bg-[#F00C89]"></div>
                       )}
-                    </label>
-
+                    </span>
                     <p className="text-[#666] md:text-[18px] text-[14px] font-Poppins font-normal leading-[23.4px]">
                       Your Email
                     </p>
-                  </div>
+                  </label>
 
-                  <div className="flex items-center gap-[10px]">
+                  {/* for phone */}
+                  <label htmlFor="PhoneButton" className="flex items-center gap-[10px] cursor-pointer">
                     <input
                       className="size-[20px] appearance-none"
                       type="radio"
@@ -72,20 +73,19 @@ const ForgotPassword = () => {
                       checked={isPhone}
                       onChange={handlePhoneChange}
                     />
-                    <label
-                      htmlFor="PhoneButton"
-                      className={`w-[20px] h-[20px] rounded-full border-[2px] bg-white flex items-center justify-center cursor-pointer ${
+                    <span
+                      className={`w-[20px] h-[20px] rounded-full border-[2px] bg-white flex items-center justify-center ${
                         isPhone ? "border-[#F00C89]" : "border-[#E5E5E5]"
                       }`}
                     >
                       {isPhone && (
                         <div className="w-3 h-3 rounded-full bg-[#F00C89]"></div>
                       )}
-                    </label>
+                    </span>
                     <p className="text-[#666] md:text-[18px] text-[14px] font-Poppins font-normal leading-[23.4px]">
                       Phone
                     </p>
-                  </div>
+                  </label>
                 </div>
 
                 <p className="mt-[30px] text-[#888] md:text-[18px] text-[14px] font-Poppins font-normal md:leading-[23.4px] leading-[18px]">
@@ -96,16 +96,16 @@ const ForgotPassword = () => {
                 </p>
 
                 <Link to="/verify-code">
-                <button
-                  className={`rounded-[6px] md:mt-[30px] mt-6 w-full h-[51px] md:text-[18px] text-[14px] text-center font-Poppins font-medium leading-[18px] ease-in ${
-                    isButtonEnabled
-                      ? "bg-btn-hover text-white"
-                      : "bg-[#F6F6F6] text-[#333] cursor-not-allowed"
-                  }`}
-                  disabled={!isButtonEnabled}
-                >
-                  Send Code
-                </button>
+                  <button
+                    className={`rounded-[6px] md:mt-[30px] mt-6 w-full h-[51px] md:text-[18px] text-[14px] text-center font-Poppins font-medium leading-[18px] ease-in ${
+                      isButtonEnabled
+                        ? "bg-btn-hover text-white"
+                        : "bg-[#F6F6F6] text-[#333] cursor-not-allowed"
+                    }`}
+                    disabled={!isButtonEnabled}
+                  >
+                    Send Code
+                  </button>
                 </Link>
               </form>
             </div>
@@ -117,4 +117,5 @@ const ForgotPassword = () => {
 };
 
 export default ForgotPassword;
+
 

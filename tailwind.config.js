@@ -18,7 +18,11 @@ export default {
         'btnColor': 'rgba(0, 0, 0, 0.50)',
       },
       backgroundImage:{
-        'btn-hover': 'linear-gradient(96deg, #F30B88 0.94%, #9E24B6 94.94%)'
+        'btn-hover': 'linear-gradient(96deg, #F30B88 0.94%, #9E24B6 94.94%)',
+       
+      },
+      backgroundColor:{
+          
       },
       borderColor:{
         'border-hover': 'linear-gradient(96deg, #F30B88 0.94%, #9E24B6 94.94%)'
