@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import AuthNavbar from "../components/Shared/AuthNavbar";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import loginImage from "../assets/login.png";
@@ -7,12 +7,16 @@ import { GrFormCheckmark } from "react-icons/gr";
 
 const Login = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [password, setPassword] = useState("");
+  const [isChecked, setIsChecked] = useState(false);
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
   };
 
-  const [isChecked, setIsChecked] = useState(false);
+  const handlePasswordChange = (e:ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
@@ -29,8 +33,8 @@ const Login = () => {
       </h1>
 
       <div className="max-w-[1920px] mx-auto">
-        <div className="bg-white rounded-[12px] lg:m-[30px] 2xl:h-[920px] lg:h-[920px] h-[600px]">
-          <div className="2xl:p-[50px] lg:p-[30px] md:p-[30px] p-4 flex 2xl:gap-[115px] lg:gap-16">
+        <div className="bg-white rounded-[12px] lg:m-[30px] 2xl:h-full lg:h-full md:h-full h-[600px]">
+          <div className="2xl:p-[50px] lg:p-[30px] md:p-[50px] p-4 flex 2xl:gap-[115px] lg:gap-16">
             <div className="2xl:w-[670px] lg:w-[550px] 2xl:h-[508px] lg:h-[500px] w-full rounded-[10px] border-[1px] border-[#E5E5E5] 2xl:p-[50px] lg:p-[40px] md:p-[50px] p-4">
               <h1 className="text-secondaryColor lg:text-[24px] md:text-[24px] text-[18px] font-Poppins font-semibold leading-[31.2px ]">
                 Sign In Your Account
@@ -49,7 +53,7 @@ const Login = () => {
                   </label>
 
                   <input
-                    className="w-full h-[51px] rounded-[6px] border-[1px] border-[#E5E5E5] bg-white outline-0 pl-5 text-[18px] font-Poppins font-normal  placeholder-secondaryColor"
+                    className="w-full h-[51px] rounded-[6px] border-[1px] border-[#E5E5E5] bg-white outline-0 pl-5 text-[18px] font-Poppins font-normal placeholder-secondaryColor"
                     type="text"
                     placeholder="programmer15@gmail.com"
                   />
@@ -57,15 +61,17 @@ const Login = () => {
 
                 <div className="flex flex-col gap-[10px] lg:mt-[30px] mt-[24px] relative">
                   <label
-                    className="text-[#666] lg:text-[18px] md:text-[18px] text-[14px]  font-Poppins font-normal leading-[23.4px]"
+                    className="text-[#666] lg:text-[18px] md:text-[18px] text-[14px] font-Poppins font-normal leading-[23.4px]"
                     htmlFor="Password"
                   >
                     Password
                   </label>
 
                   <input
-                    className="w-full h-[51px] rounded-[6px] border-[1px] border-[#E5E5E5] bg-white outline-0 pl-5 text-[18px] font-Poppins font-normal  placeholder-secondaryColor"
+                    className="w-full h-[51px] rounded-[6px] border-[1px] border-[#E5E5E5] bg-white outline-0 pl-5 text-[18px] font-Poppins font-normal placeholder-secondaryColor"
                     type={isPasswordVisible ? "text" : "password"}
+                    value={password}
+                    onChange={handlePasswordChange}
                   />
 
                   <div
@@ -93,7 +99,7 @@ const Login = () => {
                       htmlFor="rememberMe"
                       className={`lg:w-6 lg:h-6 md:w-6 md:h-6 w-[20px] h-[20px] border-[1px] border-[#E5E5E5] rounded-[4px] flex items-center justify-center cursor-pointer relative ${
                         isChecked
-                          ? "bg-gradient-to-r from-[#F30B88] to-[#9E24B6] border-transparent"
+                          ? "bg-btn-hover"
                           : ""
                       }`}
                     >
@@ -117,7 +123,14 @@ const Login = () => {
                   </Link>
                 </div>
 
-                <button className="bg-[#F6F6F6] rounded-[6px] lg:mt-[30px] mt-[24px] w-full h-[51px] text-btnColor lg:text-[18px] md:text-[18px] text-[14px] text-center font-Poppins font-medium leading-[18px] hover:bg-btn-hover hover:duration-300 hover:text-white ease-in">
+                <button
+                  className={`rounded-[6px] lg:mt-[30px] mt-[24px] w-full h-[51px] text-white lg:text-[18px] md:text-[18px] text-[14px] text-center font-Poppins font-medium leading-[18px] ease-in ${
+                    password
+                      ? "bg-btn-hover"
+                      : "bg-[#F6F6F6] text-[#333] cursor-not-allowed"
+                  }`}
+                  disabled={!password}
+                >
                   Sign In
                 </button>
               </form>
