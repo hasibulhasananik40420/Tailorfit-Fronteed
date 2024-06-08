@@ -1,5 +1,6 @@
 import { ChangeEvent, useRef, useState } from "react";
 import AuthNavbar from "../components/Shared/AuthNavbar";
+import { Link } from "react-router-dom";
 
 const VerifyCode = () => {
   
@@ -78,6 +79,7 @@ const VerifyCode = () => {
                   
                 </div>
 
+                <Link to="/new-password">
                 <button
                   type="submit"
                   className={`rounded-[6px] mt-[30px] w-full h-[51px] md:text-[18px] text-[14px] text-center font-Poppins font-medium leading-[18px] ease-in ${
@@ -89,6 +91,7 @@ const VerifyCode = () => {
                 >
                  Verify Code
                 </button>
+                </Link>
 
                  <div className="mt-[20px]">
                   <p className="text-secondaryColor text-center md:text-[18px] text-[14px] font-normal md:leading-[23.4px] leading-[18px] font-Poppins cursor-pointer"> Haven’t got the email yet? <span className="text-primaryColor underline font-medium font-Poppins md:leading-[23.4px] leading-[18px]">Resend code</span></p>

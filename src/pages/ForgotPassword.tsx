@@ -2,6 +2,7 @@
 
 import { useState, ChangeEvent } from "react";
 import AuthNavbar from "../components/Shared/AuthNavbar";
+import { Link } from "react-router-dom";
 
 const ForgotPassword = () => {
   const [isEmail, setIsEmail] = useState(false);
@@ -94,6 +95,7 @@ const ForgotPassword = () => {
                   </span>
                 </p>
 
+                <Link to="/verify-code">
                 <button
                   className={`rounded-[6px] md:mt-[30px] mt-6 w-full h-[51px] md:text-[18px] text-[14px] text-center font-Poppins font-medium leading-[18px] ease-in ${
                     isButtonEnabled
@@ -104,6 +106,7 @@ const ForgotPassword = () => {
                 >
                   Send Code
                 </button>
+                </Link>
               </form>
             </div>
           </div>

@@ -35,7 +35,7 @@ const Login = () => {
       <div className="max-w-[1920px] mx-auto">
         <div className="bg-white rounded-[12px] lg:m-[30px] 2xl:h-full lg:h-full md:h-full h-[600px]">
           <div className="2xl:p-[50px] lg:p-[30px] md:p-[50px] p-4 flex 2xl:gap-[115px] lg:gap-16">
-            <div className="2xl:w-[670px] lg:w-[550px] 2xl:h-[508px] lg:h-[500px] w-full rounded-[10px] border-[1px] border-[#E5E5E5] 2xl:p-[50px] lg:p-[40px] md:p-[50px] p-4">
+            <div className="2xl:w-[670px] lg:w-[550px] 2xl:h-[508px] lg:h-[500px] w-full h-full rounded-[10px] border-[1px] border-[#E5E5E5] 2xl:p-[50px] lg:p-[40px] md:p-[50px] p-4">
               <h1 className="text-secondaryColor lg:text-[24px] md:text-[24px] text-[18px] font-Poppins font-semibold leading-[31.2px ]">
                 Sign In Your Account
               </h1>
@@ -53,7 +53,7 @@ const Login = () => {
                   </label>
 
                   <input
-                    className="w-full h-[51px] rounded-[6px] border-[1px] border-[#E5E5E5] bg-white outline-0 pl-5 text-[18px] font-Poppins font-normal placeholder-secondaryColor"
+                    className="w-full h-[51px] rounded-[6px] border-[1px] border-[#E5E5E5] bg-white outline-0 pl-5 md:text-[18px] text-[14px] font-Poppins font-normal placeholder-secondaryColor"
                     type="text"
                     placeholder="programmer15@gmail.com"
                   />
@@ -68,7 +68,7 @@ const Login = () => {
                   </label>
 
                   <input
-                    className="w-full h-[51px] rounded-[6px] border-[1px] border-[#E5E5E5] bg-white outline-0 pl-5 text-[18px] font-Poppins font-normal placeholder-secondaryColor"
+                    className="w-full h-[51px] rounded-[6px] border-[1px] border-[#E5E5E5] bg-white outline-0 pl-5 md:text-[18px] text-[14px] font-Poppins font-normal placeholder-secondaryColor"
                     type={isPasswordVisible ? "text" : "password"}
                     value={password}
                     onChange={handlePasswordChange}

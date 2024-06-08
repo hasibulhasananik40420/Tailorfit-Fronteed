@@ -4,6 +4,7 @@ import Login from "../pages/Login";
 import ForgotPassword from "../pages/ForgotPassword";
 import VerifyCode from "../pages/VerifyCode";
 import SetNewPassword from "../pages/SetNewPassword";
+import SuccessMessage from "../pages/SuccessMessage";
 
 
 const routes = createBrowserRouter([
@@ -34,6 +35,10 @@ const routes = createBrowserRouter([
     {
         path:'/new-password',
         element:<SetNewPassword/>
+    } ,
+    {
+        path:'/success',
+        element:<SuccessMessage/>
     }
 ])
 

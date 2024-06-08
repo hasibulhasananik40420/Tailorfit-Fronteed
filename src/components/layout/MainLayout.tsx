@@ -12,6 +12,7 @@ const MainLayout = () => {
           <Link to={'/forgot-password'} className="bg-blue-400 px-8 py-2 text-white mb-2 w-[250px]">Forgot password page</Link>
           <Link to={'/verify-code'} className="bg-blue-400 px-8 py-2 text-white mb-2 w-[180px]">Verify page</Link>
           <Link to={'/new-password'} className="bg-blue-400 px-8 py-2 text-white mb-2 w-[250px]">New Password page</Link>
+          <Link to={'/success'} className="bg-blue-400 px-8 py-2 text-white mb-2 w-[250px]">Success</Link>
         </div>
 
 
