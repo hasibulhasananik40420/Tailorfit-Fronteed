@@ -55,7 +55,7 @@ const VerifyCode = () => {
               </p>
 
               <form>
-                <div className="md:mt-[30px] mt-6 flex justify-start items-center md:gap-[30px] gap-[15px]">
+                <div className="md:mt-[30px] mt-6 flex justify-start items-center md:gap-[30px] gap-[12px]">
                 {code.map((digit, index) => (
                     <input
                       key={index}
@@ -65,7 +65,7 @@ const VerifyCode = () => {
                       ref={(el) => (inputRefs.current[index] = el as HTMLInputElement)}
                       onChange={handleInputChange(index)}
                       onFocus={handleInputFocus(index)}
-                      className={`md:w-[60px] md:h-[60px] w-[50px] h-[50px] rounded-[6px] border-[1px] ${
+                      className={`md:w-[60px] md:h-[60px] w-[45px] h-[45px] rounded-[6px] border-[1px] ${
                         digit !== "" && !/^[0-9]$/.test(digit)
                           ? "border-[1.5px] border-[#F00C89]"
                           : digit !== ""
