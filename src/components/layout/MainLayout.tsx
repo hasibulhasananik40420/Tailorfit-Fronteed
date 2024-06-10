@@ -1,18 +1,20 @@
 import { Outlet } from "react-router-dom"
 import Sidebar from "./Sidebar"
+import Navbar from "../Shared/Navbar"
 
 const MainLayout = () => {
   return (
-    <div className="flex">
+    <div className="lg:flex">
         <Sidebar/>
 
 
 
 
+       <div className="lg:p-[30px] p-4 w-full">
+        <Navbar/>
         <Outlet/>
-         <div className="mt-10">
-         যেহেতু মানব পরিবারের সকল সদস্যের সমান ও অবিচ্ছেদ্য অধিকারসমূহ
-         </div>
+       </div>
+         
     </div>
   )
 }

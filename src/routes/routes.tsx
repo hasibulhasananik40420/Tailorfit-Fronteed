@@ -5,12 +5,21 @@ import ForgotPassword from "../pages/ForgotPassword";
 import VerifyCode from "../pages/VerifyCode";
 import SetNewPassword from "../pages/SetNewPassword";
 import SuccessMessage from "../pages/SuccessMessage";
+import { routeGenerator } from "../utils/routeGenerator";
+import { personPaths } from "./person.routes";
 
 
 const routes = createBrowserRouter([
     {
         path:'/',
         element:<App/>,    
+    },
+
+    {
+        path:'/person',
+        element:<App/>,
+        children:routeGenerator(personPaths)
+
     },
 
     
