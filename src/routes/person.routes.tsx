@@ -1,40 +1,7 @@
-// import GeneralSettings from "../pages/person/GeneralSettings";
-// import MeasurementSettings from "../pages/person/MeasurementSettings";
-// import PersonDashboard from "../pages/person/PersonDashboard";
-// import PersonOrderList from "../pages/person/PersonOrderList";
-
-// export const personPaths = [
-//     {
-//       name: 'Dashboard',
-//       path: 'dashboard',
-//       element: <PersonDashboard />,
-//     },
-//      {
-//       name: 'Orders List',
-//       path: 'orders-list',
-//       element: <PersonOrderList />,
-//     },
-//     {
-//       name: 'Measurement Settings',
-//       path: 'measurement-settings',
-//       element: <MeasurementSettings />,
-//     },
-//     {
-//       name: 'GeneralSettings',
-//       path: 'general-settings',
-//       element: <GeneralSettings />,
-//     },
 
 
-    
-//   ];
-
-
-
-import GeneralSettings from "../pages/person/GeneralSettings";
-import MeasurementSettings from "../pages/person/MeasurementSettings";
-import PersonDashboard from "../pages/person/PersonDashboard";
-import PersonOrderList from "../pages/person/PersonOrderList";
+import GeneralSettings from "../pages/user/GeneralSettings";
+import MeasurementSettings from "../pages/user/MeasurementSettings";
 import dhActive from "../assets/dashboardActiveIcon.png";
 import dhInactive from "../assets/dashboardInActiveIcon.png";
 import orderListActive from "../assets/orderListActiveIcon.png";
@@ -43,12 +10,14 @@ import MeasurementSettingsActiveIcon from "../assets/MeasurementSettingsActiveIc
 import MeasurementSettingsInActiveIcon from "../assets/MeasurementSettingsInActiveIcon.png";
 import GeneralSettingsActiveIcon from "../assets/GeneralSettingsActiveIcon.png";
 import GeneralSettingsInActiveIcon from "../assets/GeneralSettingsInActiveIcon.png";
+import UserDashboard from "../pages/user/UserDashboard";
+import OrderList from "../pages/user/OrderList";
 
 export const personPaths = [
   {
     name: 'Dashboard',
     path: 'dashboard',
-    element: <PersonDashboard />,
+    element: <UserDashboard />,
     icons: {
       active: dhActive,
       inactive: dhInactive
@@ -57,7 +26,7 @@ export const personPaths = [
   {
     name: 'Orders List',
     path: 'orders-list',
-    element: <PersonOrderList />,
+    element: <OrderList />,
     icons: {
       active: orderListActive,
       inactive: orderListInActive

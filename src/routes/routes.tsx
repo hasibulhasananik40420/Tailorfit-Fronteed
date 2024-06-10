@@ -16,7 +16,7 @@ const routes = createBrowserRouter([
     },
 
     {
-        path:'/person',
+        path:'/user',
         element:<App/>,
         children:routeGenerator(personPaths)
 

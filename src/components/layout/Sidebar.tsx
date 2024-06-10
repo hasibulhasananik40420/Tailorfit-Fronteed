@@ -12,7 +12,7 @@ import { TSidebarItem } from "../../types";
 const Sidebar = () => {
   const userRole = {
     ADMIN: 'admin',
-    PERSON: 'person',
+    USER: 'user',
     COMPANY: 'company',
   };
 
@@ -20,9 +20,9 @@ const Sidebar = () => {
   let sidebarItems: TSidebarItem[] = [];
 
   // Assuming 'person' role is hardcoded for this example
-  switch ('person') {
-    case userRole.PERSON:
-      sidebarItems = sidebarItemsGenerator(personPaths, userRole.PERSON);
+  switch ('user') {
+    case userRole.USER:
+      sidebarItems = sidebarItemsGenerator(personPaths, userRole.USER);
       break;
     // Add more cases if needed for other roles
     default:
