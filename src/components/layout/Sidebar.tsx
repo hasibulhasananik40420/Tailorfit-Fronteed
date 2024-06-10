@@ -3,10 +3,11 @@ import { NavLink } from "react-router-dom";
 import plus from "../../assets/plus.png";
 import { sidebarItemsGenerator } from "../../utils/sidebarItemGenerator";
 import { personPaths } from "../../routes/person.routes";
-import { SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import MobileSidebar from "./MobileSidebar";
 import DashBoardLogo from "../ui/DashBoardLogo/DashBoardLogo";
 import DashboardFooter from "../ui/DashBoardLogo/DashboardFooter";
+import { TSidebarItem } from "../../types";
 
 const Sidebar = () => {
   const userRole = {
@@ -15,7 +16,8 @@ const Sidebar = () => {
     COMPANY: 'company',
   };
 
-  let sidebarItems;
+  // let sidebarItems;
+  let sidebarItems: TSidebarItem[] = [];
 
   // Assuming 'person' role is hardcoded for this example
   switch ('person') {
@@ -28,7 +30,7 @@ const Sidebar = () => {
   }
 
 
-  const [activeMenuItem, setActiveMenuItem] = useState(null);
+  const [activeMenuItem, setActiveMenuItem] = useState<string | null>(null);
 
   useEffect(() => {
     const currentPath = location.pathname.split('/')[2]; 
@@ -38,7 +40,7 @@ const Sidebar = () => {
     }
   }, [location.pathname]);
 
-  const handleMenuItemClick = (itemName: string | SetStateAction<null>) => {
+  const handleMenuItemClick = (itemName:string) => {
     setActiveMenuItem(itemName);
   };
 
@@ -70,7 +72,7 @@ const Sidebar = () => {
 
       
 
-          {sidebarItems?.map((item) => (
+          {/* {sidebarItems?.map((item) => (
           <NavLink
             key={item.key}
             to={item.label.props.to}
@@ -104,9 +106,51 @@ const Sidebar = () => {
               </>
             )}
           </NavLink>
-        ))}
+        ))} */}
 
-
+        {sidebarItems.map((item) => (
+            item.label && typeof item.label === 'object' && 'props' in item.label && 'to' in item.label.props ? (
+              <NavLink
+                key={item.key}
+                to={item.label.props.to}
+                className={({ isActive }) =>
+                  isActive
+                    ? 'bg-activeDhcolor w-full h-[60px] rounded-[6px] pl-[15px] flex items-center gap-[15px]'
+                    : 'bg-transparent w-full h-[60px] rounded-[6px] pl-[15px] flex items-center gap-[15px]'
+                }
+                onClick={() => handleMenuItemClick(item.key)}
+              >
+                {item.children ? (
+                  item.children.map((subItem) => (
+                    subItem.label && typeof subItem.label === 'object' && 'props' in subItem.label && 'to' in subItem.label.props ? (
+                      <NavLink
+                        key={subItem.key}
+                        to={subItem.label.props.to}
+                        className="pl-[15px]"
+                      >
+                        {subItem.label}
+                      </NavLink>
+                    ) : null
+                  ))
+                ) : (
+                  <>
+                    <img
+                      className="w-6 h-6"
+                      src={activeMenuItem === item.key ? item.icons?.active : item.icons?.inactive}
+                      alt="icon"
+                    />
+                    <h1
+                      className={`${
+                        activeMenuItem === item.key ? 'text-[#FF5151]' : 'text-white'
+                      } 2xl:text-[18px] lg:text-[16px] font-medium font-Poppins leading-normal`}
+                    >
+                      {item.label.props.children}
+                    </h1>
+                  </>
+                )}
+              </NavLink>
+            ) : null
+          ))}
 
 
 
@@ -118,7 +162,9 @@ const Sidebar = () => {
 
 
       <div className="block lg:hidden 2xl:hidden">
-        <MobileSidebar/>
+        <MobileSidebar isOpen={false} onClose={function (): void {
+          throw new Error("Function not implemented.");
+        } }/>
       </div>
 
 
